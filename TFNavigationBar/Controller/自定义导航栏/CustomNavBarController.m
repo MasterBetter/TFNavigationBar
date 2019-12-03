@@ -41,8 +41,12 @@
     [self.customNavBar tf_setRightButtonWithImage:[UIImage imageNamed:@"mine"]];
     
     
-
-    self.customNavBar.barBackgroundColor = [UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1.0];
+    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [TFCustomNavigationBar navBarHeight]);
+    UIColor *topleftColor = [UIColor colorWithRed:23/255.0f green:127/255.0f blue:202/255.0f alpha:1.0f];
+    UIColor *bottomrightColor = [UIColor colorWithRed:(141/255.0) green:(137/255.0) blue:(244/255.0) alpha:(1)];
+    UIImage *bgImg = [UIImage gradientColorImageFromColors:@[topleftColor, bottomrightColor] gradientType:1 imgSize:size];
+     
+    self.customNavBar.barBackgroundColor = [UIColor colorWithPatternImage:bgImg];
     [self.customNavBar tf_setBackgroundAlpha:0];
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
 }
@@ -59,7 +63,7 @@
     else
     {
         [self.customNavBar tf_setBackgroundAlpha:0];
-        [self.customNavBar tf_setTintColor:[UIColor whiteColor]];
+        [self.customNavBar tf_setTintColor:[UIColor lightGrayColor]];
     }
 }
 
